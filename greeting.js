@@ -1,4 +1,4 @@
-const usernameContainer = document.querySelector(".js-username");
+const usernameContainer = document.querySelector(".js-greeting");
 
 function printName() {
   username = localStorage.getItem("name");
