@@ -1,28 +1,37 @@
 const usernameContainer = document.querySelector(".js-username");
-const usernameInput = usernameContainer.querySelector("input");
-const greetingContainer = document.querySelector(".js-greeting");
-const greetingH1 = greetingContainer.querySelector("h1");
 
-function checkName() {
+function printName() {
   username = localStorage.getItem("name");
   if (username) {
-    sayHello();
+    sayHello(username);
+  } else {
+    makeInput();
   }
 }
 
-function sayHello() {
-  usernameInput.style.visibility = "hidden";
-  greetingH1.innerHTML = `Hello ${username}!`;
+function sayHello(usernamae) {
+  usernameContainer.innerHTML = `<h1>Hello ${username}!`;
+}
+
+function makeInput() {
+  const usernameInput = document.createElement("input");
+  usernameInput.placeholder = "type your name here";
+  usernameInput.id = "nameInput";
+  usernameInput.style = "text";
+  const form = document.createElement("form");
+  form.addEventListener("submit", setName);
+  form.appendChild(usernameInput);
+  usernameContainer.appendChild(form);
 }
 
 function setName() {
   username = document.getElementById("nameInput").value;
   localStorage.setItem("name", username);
-  sayHello();
+  sayHello(username);
 }
 
 function init() {
-  checkName();
+  printName();
 }
 
 init();
