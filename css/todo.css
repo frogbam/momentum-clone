@@ -1,0 +1,7 @@
+.js-todoList {
+  overflow: auto;
+}
+
+.todo_btn {
+  cursor: pointer;
+}

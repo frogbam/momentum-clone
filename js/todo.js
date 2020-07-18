@@ -2,6 +2,7 @@ const todoContainaer = document.querySelector(".js-todo");
 const todoForm = todoContainaer.querySelector("form");
 const todoInput = todoForm.querySelector("input");
 const todoList = todoContainaer.querySelector(".js-todoList");
+todoList.style.height = window.innerHeight;
 
 function onSubmit(event) {
   event.preventDefault();
@@ -40,6 +41,7 @@ function delTodoInStorage(value) {
     for (let i in todoList) {
       if (todoList[i].value == value) {
         todoList.splice(i, 1);
+        break;
       }
     }
     localStorage.setItem("todo", JSON.stringify(todoList));
