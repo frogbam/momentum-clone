@@ -1,21 +1,18 @@
 const usernameContainer = document.querySelector(".js-username");
+const usernameInput = usernameContainer.querySelector("input");
+const greetingContainer = document.querySelector(".js-greeting");
+const greetingH1 = greetingContainer.querySelector("h1");
 
 function checkName() {
   username = localStorage.getItem("name");
   if (username) {
     sayHello();
-  } else {
-    makeInput();
   }
 }
 
 function sayHello() {
-  usernameContainer.innerHTML = `<h1>Hello ${username}!`;
-}
-
-function makeInput() {
-  usernameContainer.innerHTML =
-    '<input style="text" id="nameInput" placeholder="type your name here" onkeypress="if(event.keyCode==13) {setName();}">';
+  usernameInput.style.visibility = "hidden";
+  greetingH1.innerHTML = `Hello ${username}!`;
 }
 
 function setName() {

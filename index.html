@@ -7,9 +7,19 @@
     <div class="js-clock">
       <h1>00:00</h1>
     </div>
-    <div class="js-username"></div>
+    <form class="js-username">
+      <input
+        style="text"
+        id="nameInput"
+        placeholder="type your name here"
+        onkeypress="if(event.keyCode==13) {setName();}"
+      />
+    </form>
+    <div class="js-greeting">
+      <h1></h1>
+    </div>
 
-    <script src="./clock.js"></script>
     <script src="./username.js"></script>
+    <script src="./clock.js"></script>
   </body>
 </html>
