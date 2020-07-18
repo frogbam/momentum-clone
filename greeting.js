@@ -10,7 +10,7 @@ function printName() {
 }
 
 function sayHello(usernamae) {
-  usernameContainer.innerHTML = `<h1>Hello ${username}!`;
+  usernameContainer.innerHTML = `<span>Hello ${username}!</span>`;
 }
 
 function makeInput() {
