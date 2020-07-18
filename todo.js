@@ -8,11 +8,41 @@ function onSubmit(event) {
   const value = todoInput.value;
   todoInput.value = "";
   addTodo(value);
+  saveTodo(value);
 }
 
 function deleteTodo(event) {
   console.log(event.target);
   alert("Asdf");
+}
+
+function saveTodo(value) {
+  const todoList = JSON.parse(localStorage.getItem("todo"));
+  if (todoList) {
+    const newOne = {
+      id: todoList.length,
+      value: value,
+    };
+    todoList.push(newOne);
+    localStorage.setItem("todo", JSON.stringify(todoList));
+  } else {
+    const newOne = [
+      {
+        id: 0,
+        value: value,
+      },
+    ];
+    localStorage.setItem("todo", JSON.stringify(newOne));
+  }
+}
+
+function showTodo() {
+  const todoList = JSON.parse(localStorage.getItem("todo"));
+  if (todoList) {
+    for (let i of todoList) {
+      addTodo(i.value);
+    }
+  }
 }
 
 function addTodo(value) {
@@ -27,7 +57,9 @@ function addTodo(value) {
   todo.innerHTML += value;
 }
 
-function init() {}
+function init() {
+  showTodo();
+}
 
 todoForm.addEventListener("submit", onSubmit);
 init();
