@@ -26,7 +26,7 @@ function getWeather() {
   };
   request.open(
     "GET",
-    `http://api.openweathermap.org/data/2.5/weather?lat=${coords.lat}&lon=${coords.long}&appid=e0a722f73ba1db64f40c953acace670b`,
+    `https://api.openweathermap.org/data/2.5/weather?lat=${coords.lat}&lon=${coords.long}&appid=e0a722f73ba1db64f40c953acace670b`,
     true
   );
   request.send();
