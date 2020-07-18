@@ -32,22 +32,21 @@ function getWeather() {
   request.send();
 }
 
+function getLocationSuccess(position) {
+  const coords = {
+    lat: position.coords.latitude,
+    long: position.coords.longitude,
+  };
+
+  localStorage.setItem("coords", JSON.stringify(coords));
+
+  getWeather();
+}
+
+function getLocationFail() {}
+
 function getLocation() {
-  navigator.geolocation.getCurrentPosition(
-    function (position) {
-      const coords = {
-        lat: position.coords.latitude,
-        long: position.coords.longitude,
-      };
-
-      localStorage.setItem("coords", JSON.stringify(coords));
-
-      getWeather();
-    },
-    function (error) {
-      getWeather();
-    }
-  );
+  navigator.geolocation.getCurrentPosition(getLocationSuccess, getLocationFail);
 }
 
 function init() {
