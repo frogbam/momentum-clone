@@ -1,5 +1,5 @@
 const clockContainer = document.querySelector(".js-clock");
-const clock = clockContainer.querySelector("h1");
+const clock = clockContainer.querySelector("div");
 function getTime() {
   const date = new Date();
   const hours = date.getHours();

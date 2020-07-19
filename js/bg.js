@@ -1,11 +1,11 @@
-const body = document.querySelector("body");
+const root = document.querySelector(".root");
 const IMG_NUMBER = 3;
 
 function showBg(imgNumber) {
   const bg = new Image();
   bg.src = `images/${imgNumber + 1}.jpg`;
   bg.classList.add("bgImage");
-  body.prepend(bg);
+  root.prepend(bg);
 }
 
 function genRandom() {
